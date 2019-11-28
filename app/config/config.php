@@ -29,7 +29,10 @@
 
 
   // DB PARAMS CONNECTION FOR LIVE TRADES
- 
+  define('DB_HOST2', 'nasdotcng.com');
+  define('DB_USER2', 'notcsadm_excalib');
+  define('DB_PASS2', 'DRp@r6iLa0_j');
+  define('DB_NAME2', 'notcsadm_nasdngx');
 
 
 

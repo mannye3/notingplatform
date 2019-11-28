@@ -62,6 +62,14 @@
                                  <form id="login-form" action="<?php echo URLROOT; ?>/admins/edit_user/<?php echo $data['user_info']->id; ?>" method="post">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
+                                            <label for="inputEmail4">Symbol</label>
+                                            <input  name="symbol" class="form-control" value="<?php echo $data['user_info']->symbol; ?>">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail4">Username</label>
+                                            <input  name="username" class="form-control"   value="<?php echo $data['user_info']->username; ?>">
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label for="inputEmail4">Email</label>
                                             <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email" value="<?php echo $data['user_info']->email; ?>">
                                         </div>

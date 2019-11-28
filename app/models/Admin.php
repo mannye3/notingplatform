@@ -33,10 +33,11 @@
 
 
      public function updateUser($data){
-      $this->db->query('UPDATE issuers_accounts SET username = :username,  email = :email, phone = :phone, company = :company, website = :website, address = :address  WHERE id = :id');
+      $this->db->query('UPDATE issuers_accounts SET symbol = :symbol, username = :username,  email = :email, phone = :phone, company = :company, website = :website, address = :address  WHERE id = :id');
       // Bind values
       $this->db->bind(':id',  $data['id']);
        $this->db->bind(':username',  $data['username']);
+        $this->db->bind(':symbol',  $data['symbol']);
       $this->db->bind(':email', $data['email']);
       $this->db->bind(':phone', $data['phone']);
       $this->db->bind(':company', $data['company']);
@@ -104,7 +105,7 @@
 
 
 // public function getMsgById($id){
-//       $this->db->query('SELECT * FROM inbox_messages WHERE id = :id');
+//       $this->db->query('SELECT * FROM issuers_inbox_messages WHERE id = :id');
 //       $this->db->bind(':id', $id);
 
 //       $row = $this->db->single();
@@ -115,7 +116,7 @@
 
 
     public function getMsgByCode($msg_code){
-      $this->db->query('SELECT * FROM inbox_messages WHERE msg_code = :msg_code');
+      $this->db->query('SELECT * FROM issuers_inbox_messages WHERE msg_code = :msg_code');
       $this->db->bind(':msg_code', $msg_code);
 
       $row = $this->db->single();
@@ -137,7 +138,7 @@
 
 
     public function updateMsgStatus($msg_code, $read){
-       $this->db->query('UPDATE inbox_messages SET read_status = :read WHERE msg_code = :msg_code');
+       $this->db->query('UPDATE issuers_inbox_messages SET read_status = :read WHERE msg_code = :msg_code');
       // Bind values
       $this->db->bind(':msg_code', $msg_code);
       $this->db->bind(':read', $read);
@@ -156,7 +157,7 @@
 
 
  public function Totalsent($symbol){
-      $this->db->query('SELECT SUM(num) AS totalmsgsent FROM messages WHERE sender_symbol = :symbol  ');
+      $this->db->query('SELECT SUM(num) AS totalmsgsent FROM issuers_messages WHERE sender_symbol = :symbol  ');
 
       $this->db->bind(':symbol', $symbol);
 
@@ -172,7 +173,7 @@
 
 
     public function Totalinbox($symbol){
-      $this->db->query('SELECT SUM(num) AS totalmsginbox FROM inbox_messages WHERE receiver_symbol = :symbol AND read_status = 1 ');
+      $this->db->query('SELECT SUM(num) AS totalmsginbox FROM issuers_inbox_messages WHERE receiver_symbol = :symbol AND read_status = 1 ');
 
       $this->db->bind(':symbol', $symbol);
 
@@ -190,7 +191,7 @@
     //Add New Properties
       public function SendMessage($data){
       
-      $this->db->query('INSERT INTO messages (subject, message, sender_username, sender_email, sender_symbol, receiver_symbol, msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_symbol, :msg_date, :msg_code)');
+      $this->db->query('INSERT INTO issuers_messages (subject, message, sender_username, sender_email, sender_symbol, receiver_symbol, msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_symbol, :msg_date, :msg_code)');
     
       // Bind Values      
       $this->db->bind(':subject', $data['subject']);
@@ -221,7 +222,7 @@
     //Add New Properties
       public function ReplyMessage($data){
       
-      $this->db->query('INSERT INTO messages (subject, message, sender_username, sender_email, sender_symbol, receiver_username, receiver_symbol , receiver_email ,  msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_username, :receiver_symbol , :receiver_email ,  :msg_date, :msg_code)');
+      $this->db->query('INSERT INTO issuers_messages (subject, message, sender_username, sender_email, sender_symbol, receiver_username, receiver_symbol , receiver_email ,  msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_username, :receiver_symbol , :receiver_email ,  :msg_date, :msg_code)');
     
       // Bind Values      
       $this->db->bind(':subject', $data['subject']);
@@ -255,7 +256,7 @@
     //Add New Properties
       public function SendMessageInbox($data){
       
-      $this->db->query('INSERT INTO inbox_messages (subject, message, sender_username, sender_email, sender_symbol, receiver_symbol, msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_symbol,  :msg_date, :msg_code)');
+      $this->db->query('INSERT INTO issuers_inbox_messages (subject, message, sender_username, sender_email, sender_symbol, receiver_symbol, msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_symbol,  :msg_date, :msg_code)');
     
       // Bind Values      
       $this->db->bind(':subject', $data['subject']);
@@ -287,7 +288,7 @@
     //Add New Properties
       public function AdminSendMessageInbox($data){
       
-      $this->db->query('INSERT INTO inbox_messages (subject, message, sender_username, sender_email, sender_symbol, receiver_symbol, msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_symbol,  :msg_date, :msg_code)');
+      $this->db->query('INSERT INTO issuers_inbox_messages (subject, message, sender_username, sender_email, sender_symbol, receiver_symbol, msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_symbol,  :msg_date, :msg_code)');
     
       // Bind Values      
       $this->db->bind(':subject', $data['subject']);
@@ -319,7 +320,7 @@
     //Add New Properties
       public function ReplyMessageInbox($data){
       
-      $this->db->query('INSERT INTO inbox_messages (subject, message, sender_username, sender_email, sender_symbol, receiver_username, receiver_symbol , receiver_email ,  msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_username, :receiver_symbol , :receiver_email , :msg_date, :msg_code)');
+      $this->db->query('INSERT INTO issuers_inbox_messages (subject, message, sender_username, sender_email, sender_symbol, receiver_username, receiver_symbol , receiver_email ,  msg_date, msg_code) VALUES(:subject, :message, :sender_username, :sender_email, :sender_symbol, :receiver_username, :receiver_symbol , :receiver_email , :msg_date, :msg_code)');
     
       // Bind Values      
       $this->db->bind(':subject', $data['subject']);
@@ -352,7 +353,7 @@
 
 
  public function deleteMessageinbox($msg_code){
-      $this->db->query('DELETE FROM inbox_messages WHERE msg_code = :msg_code');
+      $this->db->query('DELETE FROM issuers_inbox_messages WHERE msg_code = :msg_code');
       // Bind values
       $this->db->bind(':msg_code', $msg_code);
 
@@ -366,7 +367,7 @@
 
 
     public function deleteMessagesent($msg_code){
-      $this->db->query('DELETE FROM messages WHERE msg_code = :msg_code');
+      $this->db->query('DELETE FROM issuers_messages WHERE msg_code = :msg_code');
       // Bind values
       $this->db->bind(':msg_code', $msg_code);
 
@@ -408,7 +409,7 @@
 
 
       public function SentMsg($symbol){
-      $this->db->query('SELECT *  FROM messages WHERE sender_symbol = :symbol ORDER BY id DESC');
+      $this->db->query('SELECT *  FROM issuers_messages WHERE sender_symbol = :symbol ORDER BY id DESC');
 
       // Bind Values
       $this->db->bind(':symbol', $symbol);
@@ -421,7 +422,7 @@
 
 
  public function InboxMsg($symbol){
-      $this->db->query('SELECT *  FROM inbox_messages WHERE receiver_symbol = :symbol ORDER BY id DESC');
+      $this->db->query('SELECT *  FROM issuers_inbox_messages WHERE receiver_symbol = :symbol ORDER BY id DESC');
 
       // Bind Values
       $this->db->bind(':symbol', $symbol);
@@ -433,7 +434,7 @@
 
 
    public function getNews(){
-      $this->db->query('SELECT *  FROM blog ORDER BY id DESC');
+      $this->db->query('SELECT *  FROM issuers_blog ORDER BY id DESC');
       //$this->db->bind(':ref_id', $ref_id);
 
       
@@ -448,7 +449,7 @@
 
 
   public function updateNews($data){
-      $this->db->query('UPDATE blog SET page_title = :page_title,  page_content = :page_content WHERE id = :id');
+      $this->db->query('UPDATE issuers_blog SET page_title = :page_title,  page_content = :page_content WHERE id = :id');
       // Bind values
          $this->db->bind(':id',  $data['id']);
          $this->db->bind(':page_title',  $data['page_title']);
@@ -483,7 +484,7 @@
 
 
   public function getNewsById($id){
-      $this->db->query('SELECT * FROM blog WHERE id = :id ' );
+      $this->db->query('SELECT * FROM issuers_blog WHERE id = :id ' );
       $this->db->bind(':id', $id);
 
       $row = $this->db->single();
@@ -493,7 +494,7 @@
 
 
     public function deleteNews($id){
-      $this->db->query('DELETE FROM blog WHERE id = :id');
+      $this->db->query('DELETE FROM issuers_blog WHERE id = :id');
       // Bind values
       $this->db->bind(':id', $id);
 
@@ -510,7 +511,7 @@
 
     public function AddNews($data){
       
-      $this->db->query('INSERT INTO blog (page_title, page_content, picture, date_published) VALUES(:page_title, :page_content, :picture, :date_published)');
+      $this->db->query('INSERT INTO issuers_blog (page_title, page_content, picture, date_published) VALUES(:page_title, :page_content, :picture, :date_published)');
       // Bind Values      
      
       $this->db->bind(':picture', $data['picture']);
@@ -533,7 +534,7 @@
 
      public function UpdateNewsPic($data){
       
-      $this->db->query('UPDATE blog SET picture = :picture WHERE id = :id');
+      $this->db->query('UPDATE issuers_blog SET picture = :picture WHERE id = :id');
       // Bind Values      
      
       $this->db->bind(':id', $data['id']);

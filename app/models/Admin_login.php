@@ -32,7 +32,7 @@
 
     // Login User
     public function login($username, $password){
-      $this->db->query('SELECT * FROM admin WHERE username = :username');
+      $this->db->query('SELECT * FROM issuers_admin WHERE username = :username');
       $this->db->bind(':username', $username);
 
       $row = $this->db->single();
@@ -64,7 +64,7 @@
 
     // Find user by username
     public function findUserByusername($username){
-      $this->db->query('SELECT * FROM admin WHERE username = :username');
+      $this->db->query('SELECT * FROM issuers_admin WHERE username = :username');
       // Bind value
       $this->db->bind(':username', $username);
 

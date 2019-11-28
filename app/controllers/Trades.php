@@ -18,22 +18,23 @@
         redirect('users');
       }
 
-      $this->accountModel = $this->model('Account');
+     
       $this->account3Model = $this->model('Account3');
+      $this->accountModel = $this->model('Account');
       
     }
 
      public function index(){
 
-      $trade_date = date("Ymd");
+       $trade_date = date("Ymd");
 
-      // $trade_date = '20191125';
+    //   $trade_date = '20191125';
     
-      $properties_info = $this->account3Model->getProperties($trade_date);
+      $live_trade = $this->account3Model->getLiveTrades($trade_date);
 
       
           $data = [
-        'properties_info' => $properties_info     
+        'live_trade' => $live_trade     
       ];
 
                 $this->view('inc/user_header');

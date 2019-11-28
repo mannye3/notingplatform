@@ -6,28 +6,33 @@
       }
 
       $this->adminModel = $this->model('Admin');
-      // $this->listingModel = $this->model('listing');
-      $this->utilityModel = $this->model('Utility');
+      $this->accountModel = $this->model('Account');
+      $this->account3Model = $this->model('Account3');
     }
 
-      public function index(){
+ 
+
+
+     public function index(){
+
+      $trade_date = date("Ymd");
+
+      // $trade_date = '20191125';
     
-      $Close_Deal = $this->adminModel->CloseDeal();
+      $live_trade = $this->account3Model->getLiveTrades($trade_date);
 
-       // $Deals = $this->adminModel->Deals();
+      
+          $data = [
+        'live_trade' => $live_trade     
+      ];
 
-            
-
-      $data = [
-            'Close_Deal' => $Close_Deal
-             // 'Deals' => $Deals
-              ];
-              
-
-          $this->view('inc/user_header');
+            $this->view('inc/user_header');
            $this->view('admin/index', $data);
           $this->view('inc/user_footer');
-    }
+          }
+
+
+
 
 
      public function profile(){
@@ -62,11 +67,6 @@
 
           public function edit_user($id){
 
-
-      
-            $num = rand(1000, 9999);
-            $username = 'SD-' . $num; 
-
            if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // Sanitize POST array
            
@@ -76,27 +76,44 @@
 
 
           
-            $data = [
-             'username' => trim($_POST['username']),
-              'id' => $id,
-              'email' => trim($_POST['email']),
-              'phone' => trim($_POST['phone']),
-              'company' => trim($_POST['company']),
-              'website' => trim($_POST['website']),
-              'address' => trim($_POST['address']),
-              'username_err' => ''
-             
-             
-            ];
+             // Init data
+                  $data =[
+                     'id' => $id,
+                    'symbol' => trim($_POST['symbol']),
+                    'username' => trim($_POST['username']),
+                     'email' => trim($_POST['email']),
+                    'phone' => trim($_POST['phone']),
+                    'company' => trim($_POST['company']),
+                    'website' => trim($_POST['website']),
+                    'address' => trim($_POST['address']),
+                    'email_err' => '',
+                    'phone_err' => '',
+                  ];
 
-            // Validate data
-            if(empty($data['username'])){
-              $data['username_err'] = 'username Field is Empty';
-            }
-            
+                  
+
+                    // Validate Email
+                  if(empty($data['username'])){
+                    $data['username_err'] = 'Pleae enter Username';
+                  } else {
+          
+                  }
+
+                  // Validate Phone
+                  if(empty($data['symbol'])){
+                    $data['symbol_err'] = 'Pleae Symbol';
+                  } else {
+                  }
+                 
+              
+
+                  /// Make sure errors are empty
+                  if(empty($data['username_err']) && empty($data['symbol_err'])){
+                    // Validated
+                   
 
             // Make sure no errors
-            if(empty($data['username_err'])){
+           
               // Validated
               if($this->adminModel->updateUser($data)){
                   flash('alert_message', 'Account Updated');

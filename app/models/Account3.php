@@ -9,7 +9,7 @@
 
 
 
-public function getProperties($trade_date){
+public function getLiveTrades($trade_date){
 
 
       $this->db->query('SELECT market_report.`Security`,COUNT(*) AS countall,SUM(`Qty`) AS totVol,(`Price`),SUM(`Qty`*`Price`) AS totVal,MAX(`Price`) AS maxprice,MIN(`Price`) AS minprice,MAX(`Qty`) AS maxqty,MIN(`Qty`) AS minqty

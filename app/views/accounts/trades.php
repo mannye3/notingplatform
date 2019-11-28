@@ -61,15 +61,15 @@
                                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $count = 0;  foreach($data['properties_info'] as $properties_info) : 
-                                                     $security =  $properties_info->Security;
-                                                  $totVol = $properties_info->totVol; 
-                                                  $totVal =  $properties_info->totVal;
-                                                  $maxprice = $properties_info->maxprice;
-                                                  $maxqty = $properties_info->maxqty;
-                                                  $minprice = $properties_info->minprice;
-                                                  $minqty =  $properties_info->minqty;
-                                                  $countall = $properties_info->countall;
+                                            <?php $count = 0;  foreach($data['live_trade'] as $live_trade) : 
+                                                     $security =  $live_trade->Security;
+                                                  $totVol = $live_trade->totVol; 
+                                                  $totVal =  $live_trade->totVal;
+                                                  $maxprice = $live_trade->maxprice;
+                                                  $maxqty = $live_trade->maxqty;
+                                                  $minprice = $live_trade->minprice;
+                                                  $minqty =  $live_trade->minqty;
+                                                  $countall = $live_trade->countall;
 
 
                                                    

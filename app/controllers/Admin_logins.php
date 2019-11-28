@@ -5,6 +5,8 @@
     }
 
       public function index(){
+          
+         
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Process form
@@ -52,13 +54,15 @@
             $data['password_err'] = 'Password incorrect';
 
               $this->view('inc/login_header');
-              $this->view('Admin_login/login', $data);
+              $this->view('admin_login/login', $data);
               $this->view('inc/login_footer');
           }
         } else {
           // Load view with errors
+          
+         
            $this->view('inc/login_header');
-              $this->view('Admin_login/login', $data);
+              $this->view('admin_login/login', $data);
               $this->view('inc/login_footer');
         }
 
@@ -73,9 +77,12 @@
         ];
 
         // Load view
-          $this->view('inc/login_header');
-          $this->view('Admin_login/login', $data);
+         $this->view('inc/login_header');
+        $this->view('admin_login/login', $data);
           $this->view('inc/login_footer');
+        //   $this->view('inc/login_header');
+        //   $this->view('Admin_login/login', $data);
+        //   $this->view('inc/login_footer');
       }
     }
 
