@@ -61,7 +61,7 @@
             $msg_code= rand(100000,999999);
 
             $receiver_symbol = 'ADMINCODE';
-            $receiver_email = 'info@fleepng.com';
+            $receiver_email = 'eaboajah@nasdng.com';
 
            if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // Sanitize POST array
@@ -100,7 +100,7 @@
                   if($this->accountModel->SendMessageInbox($data)){
                    
 
-                    if(sendMail_notification($data)){
+                    if($this->accountModel->sendMail_notification($data)){
                       
                    flash('alert_message', 'Message Sent');
                     redirect('accounts/compose');
@@ -310,6 +310,28 @@ public function reply($msg_code){
 
           $this->view('inc/user_header');
            $this->view('accounts/inbox', $data);
+          $this->view('inc/user_footer');
+    }
+
+
+     public function send_mail(){
+            // $total_sent = $this->accountModel->Totalsent($_SESSION['user_symbol']);
+            // $inbox = $this->accountModel->InboxMsg($_SESSION['user_symbol']);
+            // $total_inbox = $this->accountModel->Totalinbox($_SESSION['user_symbol']);
+
+                  
+
+            //  $data = [
+            //   'inbox' => $inbox,
+            //   'total_sent' => $total_sent,
+            //   'total_inbox' => $total_inbox
+                  
+              
+            
+         
+
+          $this->view('inc/user_header');
+           $this->view('accounts/send_mail');
           $this->view('inc/user_footer');
     }
 
@@ -823,7 +845,27 @@ public function reply($msg_code){
           
 
 
-             
+        function send_mail2(){
+    if(isset($_POST['send']))
+        {
+    $to_email=$_POST['to'];
+    $subject=$_POST['subject'];
+    $message=$_POST['message'];
+
+    
+      
+    $to = $to_email;
+        $subject = $subject;
+        $txt = $message;
+        $headers = "From: afasina@nasdotcng.com" . "\r\n" .
+        "CC: eaboajah@nasdng.com";
+    mail($to,$subject,$txt,$headers);
+    }
+
+    flash('alert_message', 'Message Sent');
+                    redirect('accounts/send_mail');
+        // $this->view->render('accounts/send_mail');
+  }
      
     
 

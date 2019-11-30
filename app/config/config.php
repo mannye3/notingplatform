@@ -10,7 +10,7 @@
   // URL Root
   define('URLROOT', 'http://localhost:8080/reportportalmvc');
   // Site Name
-  define('SITENAME', 'Prifa Homes');
+  define('SITENAME', 'NASD Issuers Portal');
   // App Version
   define('APPVERSION', '1.0.0');
 
