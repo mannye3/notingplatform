@@ -92,6 +92,7 @@
        $_SESSION['user_id'] = $user->id;
       $_SESSION['user_email'] = $user->email;
        $_SESSION['username'] = $user->username;
+       $_SESSION['user_name'] = $user->name;
       $_SESSION['user_phone'] = $user->phone;
       $_SESSION['user_role'] = $user->role;
       $_SESSION['user_company'] = $user->company;

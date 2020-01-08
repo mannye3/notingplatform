@@ -13,9 +13,12 @@
        $_SESSION['url'] = $url;
 
 
-      if(!isLoggedIn()){
-        redirect('users');
+       if(!isLoggedIn()){
+        redirect('');
       }
+
+
+     
 
       $this->accountModel = $this->model('Account');
       // $this->listingModel = $this->model('listing');
@@ -24,16 +27,16 @@
 
       public function index(){
       
-      $Close_Deal = $this->accountModel->CloseDeal($_SESSION['user_symbol']);
+      // $Close_Deal = $this->accountModel->CloseDeal($_SESSION['user_symbol']);
 
-       $Deals = $this->accountModel->Deals($_SESSION['user_symbol']);
+      //  $Deals = $this->accountModel->Deals($_SESSION['user_symbol']);
 
             
 
-      $data = [
-            'Close_Deal' => $Close_Deal,
-             'Deals' => $Deals
-              ];
+      // $data = [
+      //       'Close_Deal' => $Close_Deal,
+      //        'Deals' => $Deals
+      //         ];
 
 
 
@@ -41,17 +44,25 @@
               
 
           $this->view('inc/user_header');
-           $this->view('accounts/index', $data);
+           $this->view('accounts/index');
           $this->view('inc/user_footer');
     }
+
+
+     
 
 
      public function profile(){
 
-          $this->view('inc/user_header');
-           $this->view('accounts/profile', $data);
-          $this->view('inc/user_footer');
+            $this->view('inc/user_header');
+           $this->view('accounts/profile');
+            $this->view('inc/user_footer');
+          
     }
+
+
+
+         
 
 
 
@@ -726,6 +737,20 @@ public function reply($msg_code){
 
 
 
+
+          public function annual_report(){
+       
+
+                $this->view('inc/user_header');
+                 $this->view('accounts/annual_report', $data);
+                $this->view('inc/user_footer');
+          }
+
+
+
+
+
+
      function uploadfinstat(){
               if(isset($_POST['submit']))
               {
@@ -758,6 +783,45 @@ public function reply($msg_code){
                     redirect('accounts/fin_stat');
                  
                     }
+
+
+
+                     function uploadannualreport(){
+                          if(isset($_POST['submit']))
+                          {
+
+                      $target_dir = ANNUAL_REPORT_ROOT_PATH;
+                      $RandomNum = time();
+                      $target_file = $target_dir . basename($_FILES["file"]["name"]);
+                      $filename = explode('.', $_FILES["file"]["name"]);
+                      $picname = end($filename);
+                      $new_name = rand(1000, 9999) . '.' . $picname;
+                      $ImageName = str_replace(' ','-',strtolower($new_name));
+                      $ImageType = $_FILES['file']['type']; //"file/png", file/jpeg etc.
+                      $ImageExt = substr($ImageName, strrpos($ImageName, '.'));
+                      $ImageExt = str_replace('.','',$ImageExt);
+                      $ImageName = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                      $NewImageName = $ImageName.'-'.$RandomNum.'.'.$ImageExt;
+                      $ret[$NewImageName]= $target_dir.$NewImageName;
+                      move_uploaded_file($_FILES["file"]["tmp_name"],$target_dir."/".$NewImageName );
+
+                      $data = array(
+                      'symbol' => trim($_POST['symbol']),
+                      'annual_report' => $NewImageName,
+                      'upload_date' => date('jS \ F Y h:i:s A')
+                      );
+
+                      
+                    $this->accountModel->AddAnnualReport($data);
+                    }
+                    flash('alert_message', 'Annual Report Uploaded');
+                    redirect('accounts/annual_report');
+                 
+                    }
+
+
+
+
 
 
 

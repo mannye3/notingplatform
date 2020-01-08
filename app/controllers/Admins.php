@@ -7,7 +7,7 @@
 
       $this->adminModel = $this->model('Admin');
       $this->accountModel = $this->model('Account');
-      $this->account3Model = $this->model('Account3');
+ 
     }
 
  
@@ -15,20 +15,28 @@
 
      public function index(){
 
-      $trade_date = date("Ymd");
+      // $trade_date = date("Ymd");
 
-      // $trade_date = '20191125';
+      // // $trade_date = '20191125';
     
-      $live_trade = $this->account3Model->getLiveTrades($trade_date);
+      // $live_trade = $this->account3Model->getLiveTrades($trade_date);
+      // $AllIssuers = $this->adminModel->GetAllIssuers();
+      // $allannualReports = $this->adminModel->GetAllannualReports();
+      // $allfinancialStatement = $this->adminModel->GetAllfinancialStatement();
+
+
 
       
-          $data = [
-        'live_trade' => $live_trade     
-      ];
+      //     $data = [
+      //   'live_trade' => $live_trade,
+      //   'AllIssuers' => $AllIssuers,
+      //   'allannualReports' => $allannualReports,
+      //   'allfinancialStatement' => $allfinancialStatement     
+      // ];
 
-            $this->view('inc/user_header');
-           $this->view('admin/index', $data);
-          $this->view('inc/user_footer');
+            $this->view('inc/admin_header');
+           $this->view('admin/index');
+          $this->view('inc/admin_footer');
           }
 
 
@@ -50,7 +58,7 @@
     }
 
 
-     public function users(){
+     public function accounts(){
       $allusers = $this->adminModel->getUsers();
 
             
@@ -59,10 +67,13 @@
             'allusers' => $allusers
               ];
 
-          $this->view('inc/user_header');
-           $this->view('admin/users', $data);
-          $this->view('inc/user_footer');
+          $this->view('inc/admin_header');
+           $this->view('admin/accounts', $data);
+          $this->view('inc/admin_footer');
     }
+
+
+
 
 
           public function edit_user($id){
@@ -79,45 +90,41 @@
              // Init data
                   $data =[
                      'id' => $id,
-                    'symbol' => trim($_POST['symbol']),
-                    'username' => trim($_POST['username']),
-                     'email' => trim($_POST['email']),
-                    'phone' => trim($_POST['phone']),
-                    'company' => trim($_POST['company']),
-                    'website' => trim($_POST['website']),
-                    'address' => trim($_POST['address']),
+                    'name' => trim($_POST['name']),
+                    'email' => trim($_POST['email']),
+                     'password' => trim($_POST['password']),
+                    'role' => trim($_POST['role']),
                     'email_err' => '',
-                    'phone_err' => '',
+                   
                   ];
 
                   
 
                     // Validate Email
-                  if(empty($data['username'])){
-                    $data['username_err'] = 'Pleae enter Username';
-                  } else {
-          
-                  }
+                  if(empty($data['email'])){
+                    $data['email_err'] = 'Pleae enter Email';
+                  } 
 
-                  // Validate Phone
-                  if(empty($data['symbol'])){
-                    $data['symbol_err'] = 'Pleae Symbol';
-                  } else {
-                  }
-                 
-              
+                    // EMPTY PASSWORD INPUT
+                  if(empty($data['password'])){
+                    $this->adminModel->updateUser($data);
+                    flash('alert_message', 'Account Updated without password');
+                    redirect('admins/accounts');
+                
+                  } 
+
 
                   /// Make sure errors are empty
-                  if(empty($data['username_err']) && empty($data['symbol_err'])){
+                  if(empty($data['email_err'])){
                     // Validated
                    
-
+          $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             // Make sure no errors
            
               // Validated
-              if($this->adminModel->updateUser($data)){
+              if($this->adminModel->updateUserPassword($data)){
                   flash('alert_message', 'Account Updated');
-                  redirect('admins/users');
+                  redirect('admins/accounts');
                 
               } 
 
@@ -214,9 +221,6 @@
 
 
             $password = 'password123';
-            $num = rand(1000, 9999);
-            $username = 'SD-' . $num; 
-
            if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // Sanitize POST array
            
@@ -228,23 +232,19 @@
           
             $data = [
              // 'username' => trim($_POST['username']),
-              'username' => $username,
+              'name' => trim($_POST['name']),
               'email' => trim($_POST['email']),
               'password' => $password,
-              'phone' => trim($_POST['phone']),
-              'symbol' => trim($_POST['symbol']),
-              'company' => trim($_POST['company']),
-              'website' => trim($_POST['website']),
-              'address' => trim($_POST['address']),
+              'role' => trim($_POST['role']),
               'reg_date' => date('jS \ F Y h:i:s A'),
-              'symbol_err' => ''
+              'email_err' => ''
              
              
             ];
 
             // Validate data
-            if(empty($data['symbol'])){
-              $data['symbol_err'] ='Symbol Field is Empty';
+            if(empty($data['email'])){
+              $data['email_err'] ='Email Field is Empty';
 
 
             }
@@ -253,11 +253,11 @@
             
 
             // Make sure no errors
-            if(empty($data['symbol_err'])){
+            if(empty($data['email_err'])){
               // Validated
               if($this->adminModel->AddUser($data)){
-                  flash('alert_message', 'User Added');
-                  redirect('admins/users');
+                  flash('alert_message', 'Account Added');
+                  redirect('admins/accounts');
                 
               } 
 
@@ -266,16 +266,16 @@
               }
             } else {
               // Load view with errors
-               $this->view('inc/user_header');
-              $this->view('admin/add_user', $data);
-              $this->view('inc/user_footer');
+               $this->view('inc/admin_header');
+              $this->view('admin/accounts', $data);
+              $this->view('inc/admin_footer');
             }
 
           } else {
            
-           $this->view('inc/user_header');
-          $this->view('admin/add_user', $data);
-          $this->view('inc/user_footer');
+           $this->view('inc/admin_header');
+          $this->view('admin/accounts', $data);
+          $this->view('inc/admin_footer');
           }
         }
 
@@ -287,13 +287,47 @@
 
               if($this->adminModel->deleteUser($id)){
                 flash('alert_message', 'Account Removed');
-                redirect('admins/users');
+                redirect('admins/accounts');
               } 
                   else {
                     die('Something went wrong');
                   }
 
               }
+
+
+
+
+               public function annual_reports(){
+      $allannual_reports = $this->adminModel->getannual_reports();
+
+            
+
+      $data = [
+            'allannual_reports' => $allannual_reports
+              ];
+
+          $this->view('inc/user_header');
+           $this->view('admin/annual_reports', $data);
+          $this->view('inc/user_footer');
+    }
+
+
+
+
+public function financial_statements(){
+      $allfinancial_statement = $this->adminModel->getfinancial_statements();
+
+            
+
+      $data = [
+            'allfinancial_statement' => $allfinancial_statement
+              ];
+
+          $this->view('inc/user_header');
+           $this->view('admin/financial_statements', $data);
+          $this->view('inc/user_footer');
+    }
 
 
 
@@ -840,6 +874,23 @@ public function open_message_sent($msg_code){
 
 
 
-
+function dawnload_file($path) {
+    if (file_exists($path) && is_file($path)) {
+        // file exist
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($path));
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($path));
+        set_time_limit(0);
+        @readfile($path);//"@" is an error control operator to suppress errors
+    } else {
+        // file doesn't exist
+        die('Error: The file ' . basename($path) . ' does not exist!');
+    }
+}
 
   }

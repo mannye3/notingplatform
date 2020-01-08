@@ -1,101 +1,295 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-
-<!-- Mirrored from vertexoptions.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 09:32:17 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Vertex Options - Best Online Trading Platform</title>
-    <meta name="title" content="Vertex Options - Best Online Trading Platform" />
-    <meta name="description" content="Vertex Options - the most convenient online trading interface. <br> Instant access to trade options more than 150 assets of currencies, cryptocurrencies and companies shares.">
-    <meta name="keywords" content="online trading service on financial markets" />
-    <meta name="theme-color" content="#080F20">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Adomx - Responsive Bootstrap 4 Admin Template</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT; ?>/assets/images/favicon.ico">
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS
+    ============================================ -->
 
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/pocketoption.com/themes/2017-09/css/main6d68.css?v=1546961360">
-    <link rel="icon" href="<?php echo URLROOT; ?>/assets/images/favicon.png" sizes="32x32" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/bootstrap.min.css">
 
-    <script>
-        var APP = {"lang":"en","isMobile":false};
-    </script>
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/themify-icons.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/cryptocurrency-icons.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/plugins/plugins.css">
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/helper.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/style.css">
+
+    <!-- Custom Style CSS Only For Demo Purpose -->
+    <link id="cus-style" rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/style-primary.css">
 
 </head>
-<body class="">
+
+<body>
+
+    <div class="main-wrapper">
 
 
-<div class="mobile-block js-mobile-block">
-    <div class="mobile-nav">
-        
-        <div class="mCustomScrollbar1">
-            <div class="mobile-nav__buttons">
-                <a class="mobile-nav__link btn btn--success" href="<?php echo URLROOT; ?>/users/register">
-                    QUICK SIGN-UP                 </a>
-                <a class="mobile-nav__link btn btn--default" href="<?php echo URLROOT; ?>/users/login">
-                    Login                </a>
-                <a class="mobile-nav__link btn btn--primary" href="<?php echo URLROOT; ?>/users/register">
-                    Start in one click                </a>
-            </div>
-            <a class="mobile-nav__close js-mobile-block__close" title="Close"></a>
-            <div class="mobile-nav__title">
-                Menu |
-                <a onclick="window.open('https://tawk.to/chat/5c37cf9d361b3372892f86ec/default', 'Chat', 'width=600,height=500')">Livechat</a>
-            </div>
-            <div class="mb-block">
-                <div class="mb-block__title">How it works</div>
-                <a class="mb-block__link js-scroll-to" href="<?php echo URLROOT; ?>">Intro</a>
-                
-            </div>
-            <div class="mb-block">
-                <div class="mb-block__title">Why Vertex Options</div>
-                <a class="mb-block__link" href="<?php echo URLROOT; ?>/pages/assets">100+ Trading Instruments</a>
-                <a class="mb-block__link" href="<?php echo URLROOT; ?>/pages/payment_methods">Instant Deposits and Withdrawals</a>
-                <a class="mb-block__link js-scroll-to" href="<?php echo URLROOT; ?>/pages/index-2">Social trading</a>
-                            </div>
-            <div class="mb-block">
-                <div class="mb-block__title">Affiliate programs</div>
-                <a rel="noopener" class="mb-block__link" href="<?php echo URLROOT; ?>/pages/register">Become Affiliate</a>
-                <a class="mb-block__link" href="<?php echo URLROOT; ?>/pages/regional_representative">Become IB partner</a>
-            </div>
-            <div class="mb-block">
-                <div class="mb-block__title">About Us</div>
-                                <a class="mb-block__link" href="<?php echo URLROOT; ?>/pages/contacts"> Contacts </a>
-                <a class="mb-block__link" data-fancybox data-type="ajax" data-src="https://apexoptioners.com/licence">Regulation</a>
-                <a class="mb-block__link" href="offer_en.pdf">Terms and Conditions</a>
-                <!-- <a class="mb-block__link" href="https://<?php echo URLROOT; ?>/pocketoption.com/aml-policy/">AML and KYC Policy</a> -->
-                <a class="mb-block__link" href="<?php echo URLROOT; ?>/pages/privacy_policy">Privacy Policy</a>
-                <a class="mb-block__link" href="<?php echo URLROOT; ?>/pages/payment_policy">Payment Policy</a>
-                <a class="mb-block__link" href="<?php echo URLROOT; ?>/pages/responsibility_disclosure">Responsibility Disclosure</a>
-            </div>
-        </div>
+        <!-- Header Section Start -->
+        <div class="header-section">
+            <div class="container-fluid">
+                <div class="row justify-content-between align-items-center">
 
-    </div>
-</div>
+                    <!-- Header Logo (Header Left) Start -->
+                    <div class="header-logo col-auto">
+                        <a href="index.html">
+                            <img src="<?php echo URLROOT; ?>/assets/images/logo/logo.png" alt="">
+                            <img src="<?php echo URLROOT; ?>/assets/images/logo/logo-light.png" class="logo-light" alt="">
+                        </a>
+                    </div><!-- Header Logo (Header Left) End -->
 
-<div class="page-header page-header--fixed">
-    <div class="page-header__in">
-        <a href="<?php echo URLROOT; ?>" class=""><img src="<?php echo URLROOT; ?>/assets/images/logo.png" width="159px" height="52px"></a>
-        
-        <div class="r">
-            
-            <iframe src="https://freesecure.timeanddate.com/clock/i6kxbqje/n16/fn9/fs16/fcf00/tct/pct/ftb/tt0/tw1/tm1/th1" frameborder="0" width="230" height="20" allowTransparency="true"></iframe>
+                    <!-- Header Right Start -->
+                    <div class="header-right flex-grow-1 col-auto">
+                        <div class="row justify-content-between align-items-center">
 
-            <a href="<?php echo URLROOT; ?>/users/register" class="btn btn--success">QUICK SIGN-UP </a>
-            <a href="<?php echo URLROOT; ?>/users/login" class="btn btn--default">Login</a>
-            <a class="btn-mobile js-trigger-btn">☰</a>
-        </div>
-                   <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="../translate.google.com/translate_a/elementa0d8?cb=googleTranslateElementInit"></script>
-        
-	
-</div>
-        <a class="btn-mobile page-header__mobile-btn js-trigger-btn">☰</a>
-    </div>
-</div>
+                            <!-- Side Header Toggle & Search Start -->
+                            <div class="col-auto">
+                                <div class="row align-items-center">
+
+                                    <!--Side Header Toggle-->
+                                    <div class="col-auto"><button class="side-header-toggle"><i class="zmdi zmdi-menu"></i></button></div>
+
+                                    <!--Header Search-->
+                                    <div class="col-auto">
+
+                                        <div class="header-search">
+
+                                            <button class="header-search-open d-block d-xl-none"><i class="zmdi zmdi-search"></i></button>
+
+                                            <div class="header-search-form">
+                                                <form action="#">
+                                                    <input type="text" placeholder="Search Here">
+                                                    <button><i class="zmdi zmdi-search"></i></button>
+                                                </form>
+                                                <button class="header-search-close d-block d-xl-none"><i class="zmdi zmdi-close"></i></button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div><!-- Side Header Toggle & Search End -->
+
+                            <!-- Header Notifications Area Start -->
+                            <div class="col-auto">
+
+                                <ul class="header-notification-area">
+
+                                    <!--Language-->
+                                    <li class="adomx-dropdown position-relative col-auto">
+                                        <a class="toggle" href="#"><img class="lang-flag" src="<?php echo URLROOT; ?>/assets/images/flags/flag-1.jpg" alt=""><i class="zmdi zmdi-caret-down drop-arrow"></i></a>
+
+                                        <!-- Dropdown -->
+                                        <ul class="adomx-dropdown-menu dropdown-menu-language">
+                                            <li><a href="#"><img src="<?php echo URLROOT; ?>/assets/images/flags/flag-1.jpg" alt=""> English</a></li>
+                                            <li><a href="#"><img src="<?php echo URLROOT; ?>/assets/images/flags/flag-2.jpg" alt=""> Japanese</a></li>
+                                            <li><a href="#"><img src="<?php echo URLROOT; ?>/assets/images/flags/flag-3.jpg" alt=""> Spanish </a></li>
+                                            <li><a href="#"><img src="<?php echo URLROOT; ?>/assets/images/flags/flag-4.jpg" alt=""> Germany</a></li>
+                                        </ul>
+
+                                    </li>
+
+                                    <!--Mail-->
+                                    <li class="adomx-dropdown col-auto">
+                                        <a class="toggle" href="#"><i class="zmdi zmdi-email-open"></i><span class="badge"></span></a>
+
+                                        <!-- Dropdown -->
+                                        <div class="adomx-dropdown-menu dropdown-menu-mail">
+                                            <div class="head">
+                                                <h4 class="title">You have 3 new mail.</h4>
+                                            </div>
+                                            <div class="body custom-scroll">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="image"><img src="<?php echo URLROOT; ?>/assets/images/avatar/avatar-2.jpg" alt=""></div>
+                                                            <div class="content">
+                                                                <h6>Sub: New Account</h6>
+                                                                <p>There are many variations of passages of Lorem Ipsum available. </p>
+                                                            </div>
+                                                            <span class="reply"><i class="zmdi zmdi-mail-reply"></i></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="image"><img src="<?php echo URLROOT; ?>/assets/images/avatar/avatar-1.jpg" alt=""></div>
+                                                            <div class="content">
+                                                                <h6>Sub: Mail Support</h6>
+                                                                <p>There are many variations of passages of Lorem Ipsum available. </p>
+                                                            </div>
+                                                            <span class="reply"><i class="zmdi zmdi-mail-reply"></i></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="image"><img src="<?php echo URLROOT; ?>/assets/images/avatar/avatar-2.jpg" alt=""></div>
+                                                            <div class="content">
+                                                                <h6>Sub: Product inquiry</h6>
+                                                                <p>There are many variations of passages of Lorem Ipsum available. </p>
+                                                            </div>
+                                                            <span class="reply"><i class="zmdi zmdi-mail-reply"></i></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="image"><img src="<?php echo URLROOT; ?>/assets/images/avatar/avatar-1.jpg" alt=""></div>
+                                                            <div class="content">
+                                                                <h6>Sub: Mail Support</h6>
+                                                                <p>There are many variations of passages of Lorem Ipsum available. </p>
+                                                            </div>
+                                                            <span class="reply"><i class="zmdi zmdi-mail-reply"></i></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                    <!--Notification-->
+                                    <li class="adomx-dropdown col-auto">
+                                        <a class="toggle" href="#"><i class="zmdi zmdi-notifications"></i><span class="badge"></span></a>
+
+                                        <!-- Dropdown -->
+                                        <div class="adomx-dropdown-menu dropdown-menu-notifications">
+                                            <div class="head">
+                                                <h5 class="title">You have 4 new notification.</h5>
+                                            </div>
+                                            <div class="body custom-scroll">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-notifications-none"></i>
+                                                            <p>There are many variations of pages available.</p>
+                                                            <span>11.00 am   Today</span>
+                                                        </a>
+                                                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-block"></i>
+                                                            <p>There are many variations of pages available.</p>
+                                                            <span>11.00 am   Today</span>
+                                                        </a>
+                                                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-info-outline"></i>
+                                                            <p>There are many variations of pages available.</p>
+                                                            <span>11.00 am   Today</span>
+                                                        </a>
+                                                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-shield-security"></i>
+                                                            <p>There are many variations of pages available.</p>
+                                                            <span>11.00 am   Today</span>
+                                                        </a>
+                                                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-notifications-none"></i>
+                                                            <p>There are many variations of pages available.</p>
+                                                            <span>11.00 am   Today</span>
+                                                        </a>
+                                                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-block"></i>
+                                                            <p>There are many variations of pages available.</p>
+                                                            <span>11.00 am   Today</span>
+                                                        </a>
+                                                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-info-outline"></i>
+                                                            <p>There are many variations of pages available.</p>
+                                                            <span>11.00 am   Today</span>
+                                                        </a>
+                                                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-shield-security"></i>
+                                                            <p>There are many variations of pages available.</p>
+                                                            <span>11.00 am   Today</span>
+                                                        </a>
+                                                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="footer">
+                                                <a href="#" class="view-all">view all</a>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                    <!--User-->
+                                    <li class="adomx-dropdown col-auto">
+                                        <a class="toggle" href="#">
+                                            <span class="user">
+                                        <span class="avatar">
+                                            <img src="<?php echo URLROOT; ?>/assets/images/avatar/avatar-1.jpg" alt="">
+                                            <span class="status"></span>
+                                            </span>
+                                            <span class="name">Madison Howard</span>
+                                            </span>
+                                        </a>
+
+                                        <!-- Dropdown -->
+                                        <div class="adomx-dropdown-menu dropdown-menu-user">
+                                            <div class="head">
+                                                <h5 class="name"><a href="#">Madison Howard</a></h5>
+                                                <a class="mail" href="#">mailnam@mail.com</a>
+                                            </div>
+                                            <div class="body">
+                                                <ul>
+                                                    <li><a href="#"><i class="zmdi zmdi-account"></i>Profile</a></li>
+                                                    <li><a href="#"><i class="zmdi zmdi-email-open"></i>Inbox</a></li>
+                                                    <li><a href="#"><i class="zmdi zmdi-wallpaper"></i>Activity</a></li>
+                                                </ul>
+                                                <ul>
+                                                    <li><a href="#"><i class="zmdi zmdi-settings"></i>Setting</a></li>
+                                                    <li><a href="#"><i class="zmdi zmdi-lock-open"></i>Sing out</a></li>
+                                                </ul>
+                                                <ul>
+                                                    <li><a href="#"><i class="zmdi zmdi-paypal"></i>Payment</a></li>
+                                                    <li><a href="#"><i class="zmdi zmdi-google-pages"></i>Invoice</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                            </div><!-- Header Notifications Area End -->
+
+                        </div>
+                    </div><!-- Header Right End -->
+
+                </div>
+            </div>
+        </div><!-- Header Section End -->

@@ -1,18 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Orbiter is a bootstrap minimal & clean admin template">
-    <meta name="keywords" content="admin, admin panel, admin template, admin dashboard, responsive, bootstrap 4, ui kits, ecommerce, web app, crm, cms, html, sass support, scss">
-    <meta name="author" content="Themesbox">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Orbiter - Bootstrap Minimal & Clean Admin Template</title>
-    <!-- Fevicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-    <!-- Start css -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <!-- End css -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>NASD Noting Platform</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+ <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT; ?>/assets/images/newNasdIcon.jpg">
+
+    <!-- CSS
+    ============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/bootstrap.min.css">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/themify-icons.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/vendor/cryptocurrency-icons.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/plugins/plugins.css">
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/helper.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/style.css">
+
+    <!-- Custom Style CSS Only For Demo Purpose -->
+    <link id="cus-style" rel="stylesheet" href="<?php echo URLROOT; ?>/assets/css/style-primary.css">
+
 </head>

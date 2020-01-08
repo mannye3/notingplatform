@@ -1,80 +1,49 @@
-          <!-- End Contentbar -->
-            <!-- Start Footerbar -->
-            <div class="footerbar">
-                <footer class="footer">
-                    <p class="mb-0">© 2019 NASD - All Rights Reserved.</p>
-                </footer>
+   <!-- Footer Section Start -->
+        <div class="footer-section">
+            <div class="container-fluid">
+
+                <div class="footer-copyright text-center">
+                    <p class="text-body-light">2019 &copy; <a href="https://themeforest.net/user/codecarnival">Codecarnival</a></p>
+                </div>
+
             </div>
-            <!-- End Footerbar -->
-        </div>
-        <!-- End Rightbar -->
+        </div><!-- Footer Section End -->
+
     </div>
 
-   
+    <!-- JS
+============================================ -->
+ <!-- Global Vendor, plugins & Activation JS -->
+    <script src="<?php echo URLROOT; ?>/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/vendor/popper.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/vendor/bootstrap.min.js"></script>
+    <!--Plugins JS-->
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/tippy4.min.js.js"></script>
+    <!--Main JS-->
+    <script src="<?php echo URLROOT; ?>/assets/js/main.js"></script>
 
-    <
-    <!-- End Containerbar -->
-    <!-- Start js -->        
-    <script src="<?php echo URLROOT; ?>/assets/js/jquery.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/popper.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/modernizr.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/detect.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/jquery.slimscroll.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/vertical-menu.js"></script>
-    <!-- Switchery js -->
-    <script src="<?php echo URLROOT; ?>/assets/plugins/switchery/switchery.min.js"></script>
-    <!-- Apex js -->
-    <script src="<?php echo URLROOT; ?>/assets/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/apexcharts/irregular-data-series.js"></script>    
-    <!-- Slick js -->
-    <script src="<?php echo URLROOT; ?>/assets/plugins/slick/slick.min.js"></script>
-    <!-- Custom Dashboard js -->   
-    <script src="<?php echo URLROOT; ?>/assets/js/custom/custom-dashboard.js"></script>
+    <!-- Plugins & Activation JS For Only This Page -->
+
+    <!--Moment-->
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/moment/moment.min.js"></script>
+
+    <!--Daterange Picker-->
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/daterangepicker/daterangepicker.active.js"></script>
+
+    <!--Echarts-->
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/chartjs/Chart.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/chartjs/chartjs.active.js"></script>
+
+    <!--VMap-->
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/vmap/jquery.vmap.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/vmap/maps/jquery.vmap.world.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/vmap/maps/samples/jquery.vmap.sampledata.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/vmap/vmap.active.js"></script>
 
 
-    <!-- Summernote js -->
-    <script src="<?php echo URLROOT; ?>/assets/plugins/summernote/summernote-bs4.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/custom/custom-email.js"></script>
-    <!-- Core js -->
-    <script src="<?php echo URLROOT; ?>/assets/js/core.js"></script>
-      <script src="<?php echo URLROOT; ?>/assets/js/pass.js"></script>
-    <!-- End js -->
-
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/dataTables.buttons.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/buttons.bootstrap4.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/jszip.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/pdfmake.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/vfs_fonts.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/buttons.html5.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/buttons.print.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/buttons.colVis.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/dataTables.responsive.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/custom/custom-table-datatable.js"></script>
-
-     <script src="<?php echo URLROOT; ?>/assets/plugins/jquery-confirm/js/jquery-confirm.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/custom/custom-jquery-confirm.js"></script>
-
-    <script src="<?php echo URLROOT; ?>/assets/plugins/jquery-step/jquery.steps.min.js"></script>
-    <script src="<?php echo URLROOT; ?>/assets/js/custom/custom-form-wizard.js"></script>
-
-    <script src="<?php echo URLROOT; ?>/assets/plugins/footable/js/footable.min.js"></script>     
-    <script src="<?php echo URLROOT; ?>/assets/js/custom/custom-table-footable.js"></script> 
-
-    <!-- dropify js -->
-        <script src="<?php echo URLROOT; ?>/assets/dropify/dropify.min.js"></script>
-
-         <script src="<?php echo URLROOT; ?>/assets/dropify/form-fileupload.init.js"></script>
-
-        
 </body>
 
-
 </html>
-
-
-
-

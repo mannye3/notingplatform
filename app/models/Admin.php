@@ -13,9 +13,12 @@
 
 
       public function updateUserPassword($data){
-      $this->db->query('UPDATE issuers_accounts SET password = :password  WHERE id = :id');
+      $this->db->query('UPDATE issuers_accounts SET password = :password , name = :name, email = :email,  role = :role WHERE id = :id');
       // Bind values
       $this->db->bind(':password',  $data['password']);
+       $this->db->bind(':name',  $data['name']);
+        $this->db->bind(':email',  $data['email']);
+      $this->db->bind(':role', $data['role']);
       $this->db->bind(':id',  $data['id']);
      
       
@@ -33,16 +36,13 @@
 
 
      public function updateUser($data){
-      $this->db->query('UPDATE issuers_accounts SET symbol = :symbol, username = :username,  email = :email, phone = :phone, company = :company, website = :website, address = :address  WHERE id = :id');
+      $this->db->query('UPDATE issuers_accounts SET name = :name, email = :email,  role = :role  WHERE id = :id');
       // Bind values
       $this->db->bind(':id',  $data['id']);
-       $this->db->bind(':username',  $data['username']);
-        $this->db->bind(':symbol',  $data['symbol']);
-      $this->db->bind(':email', $data['email']);
-      $this->db->bind(':phone', $data['phone']);
-      $this->db->bind(':company', $data['company']);
-      $this->db->bind(':website', $data['website']);
-      $this->db->bind(':address', $data['address']);
+       $this->db->bind(':name',  $data['name']);
+        $this->db->bind(':email',  $data['email']);
+      $this->db->bind(':role', $data['role']);
+     
       
 
       // Execute
@@ -57,16 +57,12 @@
 
     // Regsiter user
     public function AddUser($data){
-      $this->db->query('INSERT INTO issuers_accounts (username, password, symbol, email, phone, company, address, website,  reg_date) VALUES(:username, :password, :symbol, :email, :phone, :company, :address, :website,  :reg_date)');
+      $this->db->query('INSERT INTO issuers_accounts (name, password, email, role, reg_date) VALUES(:name, :password, :email, :role, :reg_date)');
       // Bind values
-      $this->db->bind(':username', $data['username']);
+      $this->db->bind(':name', $data['name']);
        $this->db->bind(':password', $data['password']);
-      $this->db->bind(':symbol', $data['symbol']);
       $this->db->bind(':email', $data['email']);
-      $this->db->bind(':phone', $data['phone']);
-      $this->db->bind(':company', $data['company']);
-      $this->db->bind(':address', $data['address']);
-      $this->db->bind(':website', $data['website']);
+      $this->db->bind(':role', $data['role']);
        $this->db->bind(':reg_date', $data['reg_date']);
 
       // Execute
@@ -493,6 +489,35 @@
     }
 
 
+     public function getannual_reports(){
+      $this->db->query('SELECT *  FROM issuers_annual_report ORDER BY id DESC');
+      //$this->db->bind(':ref_id', $ref_id);
+
+      
+
+    $results = $this->db->resultSet();
+
+    return $results;
+
+ 
+  }
+
+
+
+   public function getfinancial_statements(){
+      $this->db->query('SELECT *  FROM issuers_fin_statement ORDER BY id DESC');
+      //$this->db->bind(':ref_id', $ref_id);
+
+      
+
+    $results = $this->db->resultSet();
+
+    return $results;
+
+ 
+  }
+
+
     public function deleteNews($id){
       $this->db->query('DELETE FROM issuers_blog WHERE id = :id');
       // Bind values
@@ -569,18 +594,55 @@
   }
 
 
+    public function GetAllIssuers(){
+      $this->db->query('SELECT COUNT(id) AS TotalIssuers FROM issuers_accounts ');
 
-// public function Deals($symbol){
-//       $this->db->query('SELECT  `Daily Volume` AS Daily_Volume, `Date` AS Volume_Date  FROM general_market_summary WHERE Security = :symbol');
-//       $this->db->bind(':symbol', $symbol);
+      // Bind Values
+     
 
-//       $results = $this->db->resultSet();
+      $row = $this->db->single();
+      
+      if($this->db->rowCount() > 0){
+        return $row;
+      } else {
+        return 0;
+      }
+    }
 
-//     return $results;
 
- 
-//   }
 
+    public function GetAllannualReports(){
+      $this->db->query('SELECT COUNT(id) AS TotalannualReports FROM issuers_annual_report ');
+
+      // Bind Values
+     
+
+      $row = $this->db->single();
+      
+      if($this->db->rowCount() > 0){
+        return $row;
+      } else {
+        return 0;
+      }
+    }
+
+
+
+
+    public function GetAllfinancialStatement(){
+      $this->db->query('SELECT COUNT(id) AS TotalfinancialStatement FROM issuers_fin_statement ');
+
+      // Bind Values
+     
+
+      $row = $this->db->single();
+      
+      if($this->db->rowCount() > 0){
+        return $row;
+      } else {
+        return 0;
+      }
+    }
 
 
 

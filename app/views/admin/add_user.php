@@ -19,7 +19,7 @@
                                 <div class="col-lg-12">
                         <div class="card m-b-30">
                             <div class="card-header">
-                                <h2 class="text-center">Add New User</h2>
+                                <h2 class="text-center">Add New Issuer</h2>
                             </div>
                             <div class="card-body">
                                 <div class="row justify-content-center">

@@ -451,21 +451,63 @@ public function Deals($symbol){
 
 
 
+  public function getmktsnap(){
+
+ 
+      $this->db->query('SELECT  `COL 1` AS col1, `COL 2` AS col2, `COL 3` AS col3, `COL 4` AS col4, `COL 5` AS col5, `COL 6` AS col6, `COL 7` AS col7, `COL 8` AS col8, `COL 9` AS col9, `COL 10` AS col10, `COL 11` AS col11, `COL 12` AS col12, `COL 13` AS col13, `COL 14` AS col14, `COL 15` AS col15, `COL 16` AS col16, `COL 17` AS col17, `COL 18` AS col18, `COL 19` AS col19, `COL 20` AS col20 FROM security_to_traded ');
+      // $this->db->bind(':security', $security);
+
+      
+
+    
+    
+     
+     $results = $this->db->resultSet();
+
+    return $results;
+
+ 
+  }
 
 
-  Public function getboyka($id){
+
+
+    Public function getboyka($id){
 
  
       $this->db->query('SELECT * FROM prices WHERE security_code =:id ');
       $this->db->bind(':id', $id);
-
-      
-
     
     $results = $this->db->resultSet();
 
     return $results;
   }
+
+
+
+ Public function getPresentDay(){
+
+ 
+      $this->db->query('SELECT * FROM market_snapshot ORDER BY present_date DESC Limit 1');
+     
+    
+     $row = $this->db->single();
+
+      return $row;
+    }
+
+
+
+  Public function getPresentLate(){
+
+ 
+      $this->db->query('SELECT * FROM market_snapshot ORDER BY present_date DESC Limit 1,1');
+      
+    
+    $row = $this->db->single();
+
+      return $row;
+    }
 
 
 
@@ -477,6 +519,31 @@ public function Deals($symbol){
      
       $this->db->bind(':symbol', $data['symbol']);
       $this->db->bind(':financial_statement', $data['financial_statement']);
+      $this->db->bind(':upload_date', $data['upload_date']);
+      
+       
+           
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      }
+      else{
+        return false;
+      }     
+            
+    }
+
+
+
+
+public function AddAnnualReport($data){
+      
+      $this->db->query('INSERT INTO issuers_annual_report (symbol, annual_report, upload_date) VALUES(:symbol, :annual_report, :upload_date)');
+      // Bind Values      
+     
+      $this->db->bind(':symbol', $data['symbol']);
+      $this->db->bind(':annual_report', $data['annual_report']);
       $this->db->bind(':upload_date', $data['upload_date']);
       
        

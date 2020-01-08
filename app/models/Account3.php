@@ -29,6 +29,29 @@ public function getLiveTrades($trade_date){
 
 
 
+public function getLiveSnap($security,$trade_date){
+
+
+      $this->db->query('SELECT market_report.`Security`,SUM(`Qty`) AS totVol,(`Price`),SUM(`Qty`*`Price`) AS totVal
+        FROM market_report
+       WHERE `Security` = :security AND `Date` = :trade_date
+        GROUP BY market_report.`Security`');
+
+       $this->db->bind(':security', $security);
+       $this->db->bind(':trade_date', $trade_date);
+            
+     
+      
+
+    $results = $this->db->resultSet();
+
+    return $results;
+
+ 
+  }
+
+
+
  
 
 

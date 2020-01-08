@@ -32,7 +32,7 @@
                          <div class="form-group row">
                              <label for="productTitle" class="col-sm-12 col-form-label">Upload Financial Statement</label>
                                         <div class="col-sm-12">
-                                             <input type="file" name="file" class="dropify"  data-height="300"> 
+                                             <input required="" type="file" name="file" class="dropify"  data-height="300"> 
                                         </div>
                                     </div>
 
