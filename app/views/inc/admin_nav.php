@@ -10,6 +10,7 @@
                     <ul>
                          <li><a href="<?php echo URLROOT; ?>/admins"><i class="ti-home"></i> <span>Dashboard</span></a></li>
                         <li><a href="<?php echo URLROOT; ?>/admins/accounts"><i class="fa fa-users"></i> <span>Accounts</span></a></li>
+                        <li><a href="<?php echo URLROOT; ?>/admins/roles"><i class="fa fa-list"></i> <span>Roles</span></a></li>
                       
 
                     </ul>

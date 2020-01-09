@@ -646,16 +646,109 @@
 
 
 
+// Regsiter user
+    public function AddRole($data){
+      $this->db->query('INSERT INTO roles (role_title, reg_date) VALUES(:role_title, :reg_date)');
+      // Bind values
+      $this->db->bind(':role_title', $data['role_title']);
+       $this->db->bind(':reg_date', $data['reg_date']);
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
   
 
 
+public function getRoles(){
+      $this->db->query('SELECT *  FROM roles ORDER BY id DESC');
+      //$this->db->bind(':ref_id', $ref_id);
+
+      
+
+    $results = $this->db->resultSet();
+
+    return $results;
+
+ 
+  }
+
+
+
+   public function updateRole($data){
+      $this->db->query('UPDATE roles SET role_title = :role_title  WHERE id = :id');
+      // Bind values
+      $this->db->bind(':role_title',  $data['role_title']);
+      $this->db->bind(':id',  $data['id']);
+     
+      
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+
+   public function deleteRole($id){
+      $this->db->query('DELETE FROM roles WHERE id = :id');
+      // Bind values
+      $this->db->bind(':id', $id);
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
 
 
     
 
 
-  
+   // Find user by email
+    public function findUserByEmail($email){
+      $this->db->query('SELECT * FROM issuers_accounts WHERE email = :email');
+      // Bind value
+      $this->db->bind(':email', $email);
 
+      $row = $this->db->single();
+
+      // Check row
+      if($this->db->rowCount() > 0){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+
+
+
+
+
+// Find role by name
+    public function findRoleByName($role_title){
+      $this->db->query('SELECT * FROM roles WHERE role_title = :role_title');
+      // Bind value
+      $this->db->bind(':role_title', $role_title);
+
+      $row = $this->db->single();
+
+      // Check row
+      if($this->db->rowCount() > 0){
+        return true;
+      } else {
+        return false;
+      }
+    }
 
 
    

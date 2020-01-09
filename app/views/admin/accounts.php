@@ -39,13 +39,13 @@
 
                                                 <div class="form-group">
                                                     <label for="message-text" class="col-form-label">Role:</label>
-                                                   <select required="" name="role" class="form-control select2">
-                                                        
-                                                        <option>Select Role</option>
-                                                        <option value="Audit">Audit</option>
-                                                        <option value="Legal">Legal</option>
-                                                        <option value="Operation">Operation</option>
-                                                    </select>
+                                                    <select name="role"  required="" class="form-control select2">
+                                                        <option></option>
+                                            <?php foreach($data['load_roles'] as $load_roles) : ?>
+
+                                                <option value="<?php echo $load_roles->role_title; ?>"><?php echo $load_roles->role_title; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                                 </div>
                                             
                                         </div>
