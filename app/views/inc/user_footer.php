@@ -42,6 +42,7 @@
     <script src="<?php echo URLROOT; ?>/assets/js/plugins/vmap/maps/jquery.vmap.world.js"></script>
     <script src="<?php echo URLROOT; ?>/assets/js/plugins/vmap/maps/samples/jquery.vmap.sampledata.js"></script>
     <script src="<?php echo URLROOT; ?>/assets/js/plugins/vmap/vmap.active.js"></script>
+     <script src="<?php echo URLROOT; ?>/assets/js/pass.js"></script>
 
 
 </body>

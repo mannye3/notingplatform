@@ -8,6 +8,7 @@
    
     <!--Main JS-->
     <script src="<?php echo URLROOT; ?>assets/js/main.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/pass.js"></script>
 
 </body>
 </html>

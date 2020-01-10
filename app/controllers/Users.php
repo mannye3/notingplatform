@@ -5,6 +5,7 @@
 
      
       $this->userModel = $this->model('User');
+      $this->utilityModel = $this->model('Utility');
 
 
     }
@@ -92,6 +93,7 @@
 
 
       public function forget_password(){
+        $pass_res_token = bin2hex(openssl_random_pseudo_bytes(64));
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Process form
@@ -101,6 +103,7 @@
         // Init data
         $data =[
           'email' => trim($_POST['email']),
+          'pass_res_token' => $pass_res_token,
           'email_err' => '',     
         ];
 
@@ -115,25 +118,32 @@
           // User found
         } else {
           // User not found
-          $data['email_err'] = 'No user found';
+          $data['email_err'] = 'No user found for '.$data['email'].'';
         }
 
 
 
         // Make sure errors are empty
         if(empty($data['email_err'])){
+           if($this->userModel->ResetToken($data)){
+                  if($this->utilityModel->PasswordResetEmail($data)){   
+               if($this->userModel->forgetPassword($data['email'])){
+               flash('alert_message', '<div class="notification success closeable">
+                    <p><span>check your email for the reset link</span> </p>
+                    <a class="close" href="#"></a>
+                </div>');
+                redirect('users/forget_password');
+              } 
 
-           if($this->userModel->forgetPassword($data['email'])){
-           flash('register_success', '<div class="notification success closeable">
-                <p><span>check your email for the reset link</span> </p>
-                <a class="close" href="#"></a>
-            </div>');
-            redirect('users/email/'.$data['email'].'');
-          } 
+        }
+
+      }
 
         } else {
           // Load view with errors
+           $this->view('inc/login_header');
           $this->view('users/forget_password', $data);
+           $this->view('inc/login_footer');
         }
 
 
@@ -146,9 +156,73 @@
         ];
 
         // Load view
+         $this->view('inc/login_header');
         $this->view('users/forget_password', $data);
+         $this->view('inc/login_footer');
       }
     }
+
+
+
+    public function reset_password($pass_res_token){
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $empty_token = '';
+        // Sanitize POST array
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        // Init data
+            $data =[
+              'email' => trim($_POST['email']),
+              'pass_res_token' => trim($_POST['pass_res_token']),
+              'empty_token' => $empty_token,
+              'password' => trim($_POST['password']),
+              'password_err' => '',
+            ];
+
+            // Validate Email
+            if(empty($data['password'])){
+              $data['password_err'] = 'Pleae enter name';
+            } 
+            // Make sure errors are empty
+            if(empty($data['password_err'])){
+              // Validated
+         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+          // Validated'
+           if($this->userModel->DeleteResetToken($data)){  
+          if($this->userModel->updateUserPassword($data)){
+            flash('alert_message', 'Password Updated Successfully, Login with yoir new password');
+            redirect('users/login');
+          } 
+        }
+        else {
+            die('Something went wrong');
+          }
+        } else {
+          // Load view with errors
+        $this->view('inc/login_header');
+          $this->view('users/reset_password', $data);
+           $this->view('inc/login_footer');
+        }
+
+        //  CHECK IF TOKEN IS VALID AND ACTIVE
+        } if (!$this->userModel->getUserDetail($pass_res_token)) {
+
+         redirect('users/expired_token');
+          
+        }else {
+        
+        $user_profile = $this->userModel->getUserDetail($pass_res_token);
+
+          $data = ['user_profile' => $user_profile
+             ];
+           $this->view('inc/login_header');
+          $this->view('users/reset_password', $data);
+           $this->view('inc/login_footer');
+          }
+        }
+
+
+
 
     public function createUserSession($user){
        $temp_url =   $_SESSION['url']; 
@@ -183,6 +257,14 @@
      
     }
 
+     public function expired_token(){
+      
+  
+          $this->view('inc/login_header');
+           $this->view('users/410');
+          $this->view('inc/login_footer');
+    }
+
     public function logout(){
       unset($_SESSION['user_id']);
       unset($_SESSION['user_email']);
@@ -194,7 +276,7 @@
     }
 
 
-   
+
 
     
   }
