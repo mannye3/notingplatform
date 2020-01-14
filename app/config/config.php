@@ -22,7 +22,9 @@
 
 // FINANCIAL Document Path
   //define('FINANCIAL_STAT_ROOT_PATH', dirname(dirname(dirname(__FILE__))) . '/public/financial_statment/');
-  define('FINANCIAL_STAT_ROOT_PATH', dirname(dirname(dirname(__FILE__))) . '/public/');
+  define('NOTING_DOCS', dirname(dirname(dirname(__FILE__))) . '/public/');
+
+
 
 
 

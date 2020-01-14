@@ -5,7 +5,7 @@
 
      
       $this->userModel = $this->model('User');
-      $this->utilityModel = $this->model('Utility');
+   
 
 
     }
@@ -126,14 +126,21 @@
         // Make sure errors are empty
         if(empty($data['email_err'])){
            if($this->userModel->ResetToken($data)){
-                  if($this->utilityModel->PasswordResetEmail($data)){   
-               if($this->userModel->forgetPassword($data['email'])){
+            if($this->userModel->forgetPassword($data['email'])){
+              
+                  if(PasswordResetEmail($data)){   
+               
                flash('alert_message', '<div class="notification success closeable">
                     <p><span>check your email for the reset link</span> </p>
                     <a class="close" href="#"></a>
                 </div>');
-                redirect('users/forget_password');
-              } 
+                redirect('users/forget_password');  
+              } else{
+                error_flash('alert_message', '<div class="notification success closeable">
+                    <p><span>ERROR</span> </p>
+                    <a class="close" href="#"></a>
+                </div>');
+              }
 
         }
 
@@ -276,6 +283,27 @@
     }
 
 
+function send_mail2(){
+    if(isset($_POST['send']))
+        {
+    $to_email='aboajahemmanuel@gmail.com';
+    $subject='Test mail';
+    $message='fuck you bin2hex';
+
+    
+      
+    $to = $to_email;
+        $subject = $subject;
+        $txt = $message;
+        $headers = "From: afasina@nasdotcng.com" . "\r\n" .
+        "CC: eaboajah@nasdng.com";
+    mail($to,$subject,$txt,$headers);
+    }
+
+    flash('alert_message', 'Message Sent');
+                    redirect('users/forget_password');
+        // $this->view->render('accounts/send_mail');
+  }
 
 
     

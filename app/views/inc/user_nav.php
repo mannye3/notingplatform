@@ -13,21 +13,35 @@
                       
 
                     </ul>
+                     <?php endif; ?>
 
 
 
-                      <?php if ($_SESSION['user_role'] == 'Legal') : ?>
+                      <?php if ($_SESSION['user_role'] == 'LEGAL') : ?>
                     <ul>
                          <li><a href="<?php echo URLROOT; ?>/accounts"><i class="ti-home"></i> <span>Dashboard</span></a></li>
                            <li><a href="<?php echo URLROOT; ?>/accounts"><i class="ti-home"></i> <span>Legal</span></a></li>
+
+                    </ul>
+                     <?php endif; ?>
+
+
+                     
+                      <?php if ($_SESSION['user_role'] == 'AUDIT') : ?>
+                    <ul>
+                         <li><a href="<?php echo URLROOT; ?>/accounts"><i class="ti-home"></i> <span>Dashboard</span></a></li>
+                           <li><a href="<?php echo URLROOT; ?>/accounts"><i class="ti-home"></i> <span>Audit</span></a></li>
                       
 
                     </ul>
                      <?php endif; ?>
-                      <?php if ($_SESSION['user_role'] == 'Audit') : ?>
+
+
+
+                      <?php if ($_SESSION['user_role'] == 'OPERATIONS') : ?>
                     <ul>
                          <li><a href="<?php echo URLROOT; ?>/accounts"><i class="ti-home"></i> <span>Dashboard</span></a></li>
-                           <li><a href="<?php echo URLROOT; ?>/accounts"><i class="ti-home"></i> <span>Audit</span></a></li>
+                           <li><a href="<?php echo URLROOT; ?>/accounts"><i class="ti-home"></i> <span>Operations</span></a></li>
                       
 
                     </ul>

@@ -27,20 +27,7 @@
 
       public function index(){
       
-      // $Close_Deal = $this->accountModel->CloseDeal($_SESSION['user_symbol']);
-
-      //  $Deals = $this->accountModel->Deals($_SESSION['user_symbol']);
-
-            
-
-      // $data = [
-      //       'Close_Deal' => $Close_Deal,
-      //        'Deals' => $Deals
-      //         ];
-
-
-
-
+      
               
 
           $this->view('inc/user_header');
@@ -62,7 +49,101 @@
 
 
 
-         
+
+     public function add_noting(){
+    
+          $this->view('inc/user_header');
+           $this->view('accounts/add_noting');
+          $this->view('inc/user_footer');
+    }
+
+
+
+
+          function upload_noting(){
+                    if(isset($_POST['submit']))
+
+                    {
+                $noting_code= rand(100000,999999);
+                $target_dir2 = NOTING_DOCS;
+                    $RandomNum2 = time();
+                    $target_file2 = $target_dir2 . basename($_FILES["file2"]["name"]);
+                    $filename2 = explode('.', $_FILES["file2"]["name"]);
+                    $picname2 = end($filename2);
+                    $new_name2 = rand(100, 999) . '.' . $picname2;
+                    $ImageName2 = str_replace(' ','-',strtolower($new_name2));
+                    $ImageType2 = $_FILES['file2']['type']; //"file/png", file/jpeg etc.
+                    $ImageExt2 = substr($ImageName2, strrpos($ImageName2, '.'));
+                    $ImageExt2 = str_replace('.','',$ImageExt2);
+                    $ImageName2 = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName2);
+                    $NewImageName2 = $ImageName2.'-'.$RandomNum2.'.'.$ImageExt2;
+                    $ret[$NewImageName2]= $target_dir2.$NewImageName2;
+                    move_uploaded_file($_FILES["file2"]["tmp_name"],$target_dir2."/".$NewImageName2 );
+                
+
+
+
+                      $target_dir = NOTING_DOCS;
+                      $RandomNum = time();
+                      $target_file = $target_dir . basename($_FILES["file"]["name"]);
+                      $filename = explode('.', $_FILES["file"]["name"]);
+                      $picname = end($filename);
+                      $new_name = rand(100, 999) . '.' . $picname;
+                      $ImageName = str_replace(' ','-',strtolower($new_name));
+                      $ImageType = $_FILES['file']['type']; //"file/png", file/jpeg etc.
+                      $ImageExt = substr($ImageName, strrpos($ImageName, '.'));
+                      $ImageExt = str_replace('.','',$ImageExt);
+                      $ImageName = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+                      $NewImageName = $ImageName.'-'.$RandomNum.'.'.$ImageExt;
+                      $ret[$NewImageName]= $target_dir.$NewImageName;
+                      move_uploaded_file($_FILES["file"]["tmp_name"],$target_dir."/".$NewImageName );
+
+                      $data = array(
+                      'company' => trim($_POST['company']),
+                      'value' => trim($_POST['value']),
+                      'volume' => trim($_POST['volume']),
+                      'price' => trim($_POST['price']),
+                      'buyer' => trim($_POST['buyer']),
+                      'seller' => trim($_POST['seller']),
+                      'noting_date' => trim($_POST['noting_date']),
+                      'broker_buyer' => trim($_POST['broker_buyer']),
+                      'broker_seller' => trim($_POST['broker_seller']),
+                      'noting_code' => $noting_code,
+                      'reg_date' => date('jS \ F Y h:i:s A'),
+                      'support_doc' => $NewImageName,
+                      'registra_doc' => $NewImageName2,
+                      'user_id' => $_SESSION['user_id'],
+                      'user_name' => $_SESSION['user_name']
+                      );
+                     $this->accountModel->addNoting($data);
+                    
+                    }
+                    flash('alert_message', 'Noting Upload Successfully');
+                  redirect('accounts/add_noting');
+                 
+                    }
+
+
+
+
+
+
+        public function notings(){
+      $allnotings = $this->accountModel->getNotings();
+            
+      $data = [
+            'allnotings' => $allnotings
+            
+              ];
+
+          $this->view('inc/user_header');
+           $this->view('accounts/notings', $data);
+          $this->view('inc/user_footer');
+    }
+
+
+
+                
 
 
 
@@ -153,7 +234,7 @@
 
 
 
-public function reply($msg_code){
+      public function reply($msg_code){
       
              $reply_msg_code= rand(100000,999999);
 

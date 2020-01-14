@@ -93,7 +93,11 @@
                                          <td>
                                         <div class="table-action-buttons">
                                        
-                                            <button class="edit button button-box button-xs button-info" data-toggle="modal" data-target="#exampleModal<?php echo $allusers->id; ?>" data-whatever="@fat"><i class="zmdi zmdi-edit"></i> </button>
+                                          <!--   <button class="edit button button-box button-xs button-info" data-toggle="modal" data-target="#exampleModal<?php echo $allusers->id; ?>" data-whatever="@fat"><i class="zmdi zmdi-edit"></i> Edit </button> -->
+                                             <button class="btn button-primary"  data-toggle="modal" data-target="#exampleModal<?php echo $allusers->id; ?>" data-whatever="@fat">
+                                        <i class="zmdi zmdi-edit"></i>
+                                            Edit
+                                    </button>
                                          <!--    <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a> -->
 
                                             <form action="<?php echo URLROOT; ?>/admins/delete_user/<?php echo $allusers->id; ?>" method="POST">
@@ -135,12 +139,12 @@
                                                 <div class="form-group">
                                                     <label for="message-text" class="col-form-label">Role:</label>
                                                    <select name="role"  required="" class="form-control select2">
-                                                        
-                                                        <option value="<?php echo $allusers->role; ?>"><?php echo $allusers->role; ?></option>
-                                                        <option value="Audit">Audit</option>
-                                                        <option value="Legal">Legal</option>
-                                                        <option value="Operation">Operation</option>
-                                                    </select>
+                                                        <option><?php echo $allusers->role; ?></option>
+                                            <?php foreach($data['load_roles'] as $load_roles) : ?>
+
+                                                <option value="<?php echo $load_roles->role_title; ?>"><?php echo $load_roles->role_title; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                                 </div>
                                             
                                         </div>

@@ -45,6 +45,18 @@
      <script src="<?php echo URLROOT; ?>/assets/js/pass.js"></script>
 
 
+  
+
+
+     <!-- Plugins & Activation JS For Only This Page -->
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/filepond/filepond.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/filepond/filepond-plugin-image-exif-orientation.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/filepond/filepond-plugin-image-preview.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/filepond/filepond.active.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/dropify/dropify.min.js"></script>
+    <script src="<?php echo URLROOT; ?>/assets/js/plugins/dropify/dropify.active.js"></script>
+
+
 </body>
 
 </html>

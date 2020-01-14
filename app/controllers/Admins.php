@@ -186,13 +186,6 @@
                   }
 
 
-                   // Check email
-          if($this->adminModel->findUserByEmail($data['email'])){
-            error_flash('alert_message', ''.$data['email'].' is already taken');
-                    redirect('admins/accounts');
-                    die();
-          }
-
                     // EMPTY PASSWORD INPUT
                   if(empty($data['password'])){
                     $this->adminModel->updateUser($data);
@@ -207,7 +200,7 @@
                   if(empty($data['email_err'])){
                     // Validated
                    
-          $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             // Make sure no errors
            
               // Validated

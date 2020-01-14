@@ -9,6 +9,64 @@
 
 
 
+    //Add New Noting
+      public function addNoting($data){
+      
+      $this->db->query('INSERT INTO noting_report (company, value, volume, price, buyer, seller, noting_date, broker_buyer, broker_seller, support_doc, registra_doc, noting_code, reg_date, user_id, user_name) VALUES(:company, :value, :volume, :price, :buyer, :seller, :noting_date, :broker_buyer, :broker_seller, :support_doc, :registra_doc, :noting_date, :reg_date, :user_id, :user_name)');
+    
+      // Bind Values      
+      $this->db->bind(':company', $data['company']);
+      $this->db->bind(':value', $data['value']);
+      $this->db->bind(':volume', $data['volume']);
+      $this->db->bind(':price', $data['price']);
+      $this->db->bind(':buyer', $data['buyer']);
+      $this->db->bind(':seller', $data['seller']);
+      $this->db->bind(':noting_date', $data['noting_date']);
+      $this->db->bind(':broker_buyer', $data['broker_buyer']);
+      $this->db->bind(':broker_seller', $data['broker_seller']);
+      $this->db->bind(':support_doc', $data['support_doc']);
+      $this->db->bind(':registra_doc', $data['registra_doc']);
+      $this->db->bind(':noting_date', $data['noting_date']);
+      $this->db->bind(':reg_date', $data['reg_date']);
+      $this->db->bind(':user_id', $data['user_id']);
+      $this->db->bind(':user_name', $data['user_name']);
+
+
+
+
+
+      // Execute
+      if($this->db->execute()){
+        return true;
+      }
+      else{
+        return false;
+      }           
+            
+    }
+
+
+
+
+       public function getNotings(){
+      $this->db->query('SELECT *  FROM noting_report ORDER BY id DESC');
+      //$this->db->bind(':ref_id', $ref_id);
+
+      
+
+    $results = $this->db->resultSet();
+
+    return $results;
+
+ 
+  }
+
+
+
+
+
+
+
 
       public function updatePassword($data){
       $this->db->query('UPDATE issuers_accounts SET password = :password  WHERE id = :id');

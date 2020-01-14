@@ -22,8 +22,8 @@
                                         
                                             
                                         <div class="col-12 mb-20"></p>
-                                            <input type="" name="email" value="<?php echo $data['user_profile']->email; ?>">
-                                            <input type="" name="pass_res_token" value="<?php echo $data['user_profile']->pass_res_token; ?>">
+                                            <input type="hidden" name="email" value="<?php echo $data['user_profile']->email; ?>">
+                                            <input type="hidden" name="pass_res_token" value="<?php echo $data['user_profile']->pass_res_token; ?>">
                                             <input type="password" id="password" name="password" class="form-control" minlength="6"  placeholder="Enter New Password here" required></div>
 
                                             <div class="col-12 mb-20">
